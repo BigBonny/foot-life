@@ -166,6 +166,8 @@ export default function ProfilePage() {
         postal_code: formData.postal_code,
         country: formData.country,
         updated_at: new Date().toISOString(),
+        created_at: profile?.created_at || new Date().toISOString(),
+        id: profile?.id || crypto.randomUUID(),
       }
 
       const { error } = await supabase

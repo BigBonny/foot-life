@@ -76,6 +76,7 @@ export default function WorldCupPage() {
       price: product.price,
       image: product.image,
       size: 'M',
+      color: 'Default',
       quantity: 1,
     })
     toast({
