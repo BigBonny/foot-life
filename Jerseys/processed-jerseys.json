@@ -1,0 +1,843 @@
+[
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Atlético Madrid Bleu",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/atletico-madrid-blue-front.jpeg",
+      "back": "/jerseys/atletico-madrid-blue-back.jpeg"
+    },
+    "category": "national",
+    "team": "atletico-madrid",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Bleu"
+    ],
+    "stock": {
+      "S": 56,
+      "M": 59,
+      "L": 22,
+      "XL": 57
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Barcelona Bleu",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/barca-blue-front.jpeg",
+      "back": "/jerseys/barca-blue-back.jpeg"
+    },
+    "category": "national",
+    "team": "barca",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Bleu"
+    ],
+    "stock": {
+      "S": 37,
+      "M": 38,
+      "L": 44,
+      "XL": 20
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot  barcelone",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/barcelone-front.jpeg",
+      "back": "/jerseys/barcelone-back.jpeg"
+    },
+    "category": "national",
+    "team": "",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "barcelone"
+    ],
+    "stock": {
+      "S": 52,
+      "M": 27,
+      "L": 41,
+      "XL": 25
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Barcelone Multicolore",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/barcelone-multicolors-front.jpeg",
+      "back": "/jerseys/barcelone-multicolors-back.jpeg"
+    },
+    "category": "national",
+    "team": "barcelone",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Multicolore"
+    ],
+    "stock": {
+      "S": 17,
+      "M": 55,
+      "L": 26,
+      "XL": 16
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Barcelone Rouge",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/barcelone-red-front.jpeg",
+      "back": "/jerseys/barcelone-red-back.jpeg"
+    },
+    "category": "national",
+    "team": "barcelone",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Rouge"
+    ],
+    "stock": {
+      "S": 41,
+      "M": 33,
+      "L": 35,
+      "XL": 27
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Barcelone Jaune",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/barcelone-yellow-front.jpeg",
+      "back": "/jerseys/barcelone-yellow-back.jpeg"
+    },
+    "category": "national",
+    "team": "barcelone",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Jaune"
+    ],
+    "stock": {
+      "S": 39,
+      "M": 17,
+      "L": 53,
+      "XL": 59
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot  brazil",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/brazil-front.jpeg",
+      "back": "/jerseys/brazil-back.jpeg"
+    },
+    "category": "national",
+    "team": "",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "brazil"
+    ],
+    "stock": {
+      "S": 11,
+      "M": 36,
+      "L": 51,
+      "XL": 18
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Brésil Vert",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/brazil-green-front.jpeg",
+      "back": "/jerseys/brazil-green-back.jpeg"
+    },
+    "category": "national",
+    "team": "brazil",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Vert"
+    ],
+    "stock": {
+      "S": 54,
+      "M": 49,
+      "L": 36,
+      "XL": 51
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Brésil Perrot",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/brazil-perrot-front.jpeg",
+      "back": "/jerseys/brazil-perrot-back.jpeg"
+    },
+    "category": "national",
+    "team": "brazil",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Perrot"
+    ],
+    "stock": {
+      "S": 28,
+      "M": 20,
+      "L": 24,
+      "XL": 31
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Chelsea Bleu",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/chelsea-blue-front.jpeg",
+      "back": "/jerseys/chelsea-blue-back.jpeg"
+    },
+    "category": "national",
+    "team": "chelsea",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Bleu"
+    ],
+    "stock": {
+      "S": 56,
+      "M": 11,
+      "L": 44,
+      "XL": 13
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Chelsea Rouge",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/chelsea-red-front.jpeg",
+      "back": "/jerseys/chelsea-red-back.jpeg"
+    },
+    "category": "national",
+    "team": "chelsea",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Rouge"
+    ],
+    "stock": {
+      "S": 44,
+      "M": 36,
+      "L": 44,
+      "XL": 55
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot english team",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/english-team-front.jpeg",
+      "back": "/jerseys/english-team-back.jpeg"
+    },
+    "category": "national",
+    "team": "english",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "team"
+    ],
+    "stock": {
+      "S": 58,
+      "M": 44,
+      "L": 19,
+      "XL": 12
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Équipe de France Bleu",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/french-team-blue-front.jpeg",
+      "back": "/jerseys/french-team-blue-back.jpeg"
+    },
+    "category": "national",
+    "team": "french-team",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Bleu"
+    ],
+    "stock": {
+      "S": 59,
+      "M": 19,
+      "L": 25,
+      "XL": 12
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Équipe de France Blanc",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/french-team-white-front.jpeg",
+      "back": "/jerseys/french-team-white-back.jpeg"
+    },
+    "category": "national",
+    "team": "french-team",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blanc"
+    ],
+    "stock": {
+      "S": 31,
+      "M": 44,
+      "L": 51,
+      "XL": 23
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot  hilal",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/hilal-front.jpeg",
+      "back": "/jerseys/hilal-back.jpeg"
+    },
+    "category": "national",
+    "team": "",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "hilal"
+    ],
+    "stock": {
+      "S": 32,
+      "M": 18,
+      "L": 50,
+      "XL": 34
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot man city",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/man-city-front.jpeg",
+      "back": "/jerseys/man-city-back.jpeg"
+    },
+    "category": "national",
+    "team": "man",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "city"
+    ],
+    "stock": {
+      "S": 47,
+      "M": 37,
+      "L": 29,
+      "XL": 35
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Manchester City Noir",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/man-city-black-front.jpeg",
+      "back": "/jerseys/man-city-black-back.jpeg"
+    },
+    "category": "national",
+    "team": "man-city",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Noir"
+    ],
+    "stock": {
+      "S": 34,
+      "M": 41,
+      "L": 58,
+      "XL": 44
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Manchester City Vert",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/man-city-green-front.jpeg",
+      "back": "/jerseys/man-city-green-back.jpeg"
+    },
+    "category": "national",
+    "team": "man-city",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Vert"
+    ],
+    "stock": {
+      "S": 24,
+      "M": 20,
+      "L": 24,
+      "XL": 13
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot man-city-light Bleu",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/man-city-light-blue-front.jpeg",
+      "back": "/jerseys/man-city-light-blue-back.jpeg"
+    },
+    "category": "national",
+    "team": "man-city-light",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Bleu"
+    ],
+    "stock": {
+      "S": 13,
+      "M": 46,
+      "L": 19,
+      "XL": 28
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Marseille Jaune",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/marseille-yellow-front.jpeg",
+      "back": "/jerseys/marseille-yellow-back.jpeg"
+    },
+    "category": "national",
+    "team": "marseille",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Jaune"
+    ],
+    "stock": {
+      "S": 25,
+      "M": 24,
+      "L": 22,
+      "XL": 37
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Miami Noir",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/miami-black-front.jpeg",
+      "back": "/jerseys/miami-black-back.jpeg"
+    },
+    "category": "national",
+    "team": "miami",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Noir"
+    ],
+    "stock": {
+      "S": 23,
+      "M": 12,
+      "L": 44,
+      "XL": 24
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot  morocco",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/morocco-front.jpeg",
+      "back": "/jerseys/morocco-back.jpeg"
+    },
+    "category": "national",
+    "team": "",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "morocco"
+    ],
+    "stock": {
+      "S": 57,
+      "M": 55,
+      "L": 31,
+      "XL": 55
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Portugal Rouge",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/portugal-red-front.jpeg",
+      "back": "/jerseys/portugal-red-back.jpeg"
+    },
+    "category": "national",
+    "team": "portugal",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Rouge"
+    ],
+    "stock": {
+      "S": 49,
+      "M": 40,
+      "L": 43,
+      "XL": 21
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot psg-light Rose",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/psg-light-pink-front.jpeg",
+      "back": "/jerseys/psg-light-pink-back.jpeg"
+    },
+    "category": "national",
+    "team": "psg-light",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Rose"
+    ],
+    "stock": {
+      "S": 11,
+      "M": 19,
+      "L": 29,
+      "XL": 13
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Real Madrid Vert Lime",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/real-madrid-lime-front.jpeg",
+      "back": "/jerseys/real-madrid-lime-back.jpeg"
+    },
+    "category": "national",
+    "team": "real-madrid",
+    "is_personalized": true,
+    "is_best_seller": true,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Vert Lime"
+    ],
+    "stock": {
+      "S": 30,
+      "M": 45,
+      "L": 48,
+      "XL": 18
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Real Madrid Rose",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/real-madrid-pink-front.jpeg",
+      "back": "/jerseys/real-madrid-pink-back.jpeg"
+    },
+    "category": "national",
+    "team": "real-madrid",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Rose"
+    ],
+    "stock": {
+      "S": 25,
+      "M": 48,
+      "L": 46,
+      "XL": 55
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot real-madrid-yellow Noir",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/real-madrid-yellow-black-front.jpeg",
+      "back": "/jerseys/real-madrid-yellow-black-back.jpeg"
+    },
+    "category": "national",
+    "team": "real-madrid-yellow",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Noir"
+    ],
+    "stock": {
+      "S": 17,
+      "M": 57,
+      "L": 36,
+      "XL": 40
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot red-with stripes",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/red-with-stripes-front.jpeg",
+      "back": "/jerseys/red-with-stripes-back.jpeg"
+    },
+    "category": "national",
+    "team": "red-with",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "stripes"
+    ],
+    "stock": {
+      "S": 51,
+      "M": 15,
+      "L": 28,
+      "XL": 59
+    }
+  },
+  {
+    "id": "gen_random_uuid()",
+    "name": "Maillot Rome Rouge",
+    "description": "Coupe : standard / unisexe (prend ta taille habituelle)\nMatière : tissu respirant, léger et agréable à porter\nFlocage : finition premium, rendu net et durable\nDétails : écussons + logos intégrés selon le modèle\nConfort : idéal au quotidien comme pour le sport\n\nMatériaux & Entretien\nMatériaux\nTissu léger et respirant\nToucher doux, confortable au quotidien\nFinition premium (impression / flocage selon le modèle)\n\nEntretien\nLaver à l'envers à 30°C\nÉviter le sèche-linge (pour préserver le flocage)\nNe pas repasser directement sur l'impression / le flocage\nSéchage à l'air libre recommandé\nLaver avec des couleurs similaires",
+    "price": 30,
+    "images": {
+      "front": "/jerseys/roma-red-front.jpeg",
+      "back": "/jerseys/roma-red-back.jpeg"
+    },
+    "category": "national",
+    "team": "roma",
+    "is_personalized": true,
+    "is_best_seller": false,
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Rouge"
+    ],
+    "stock": {
+      "S": 22,
+      "M": 31,
+      "L": 32,
+      "XL": 47
+    }
+  }
+]
