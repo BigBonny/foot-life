@@ -21,7 +21,6 @@ export default function TrackingPage() {
     setLoading(true)
     
     try {
-      // Here you would fetch from your backend
       const response = await fetch(`/api/tracking/${trackingNumber}`)
       
       if (response.ok) {
@@ -58,75 +57,60 @@ export default function TrackingPage() {
         <h1 className="text-3xl font-bold text-gray-900 mb-8">Suivre votre commande</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Tracking Form */}
           <div className="lg:col-span-1">
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
-                  <Package className="h-5 w-5" />
+                <CardTitle className="flex items-center">
+                  <Search className="h-5 w-5 mr-2" />
                   Suivi de commande
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="tracking" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium mb-2">
                       Numéro de suivi
                     </label>
-                    <div className="flex space-x-2">
-                      <input
-                        type="text"
-                        id="tracking"
-                        value={trackingNumber}
-                        onChange={(e) => setTrackingNumber(e.target.value)}
-                        placeholder="Entrez votre numéro de suivi"
-                        className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      />
-                      <Button 
-                        onClick={handleTrack}
-                        disabled={loading}
-                        className="px-4 py-2"
-                      >
-                        {loading ? (
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        ) : (
-                          <Search className="h-4 w-4" />
-                        )}
-                      </Button>
-                    </div>
+                    <input
+                      type="text"
+                      value={trackingNumber}
+                      onChange={(e) => setTrackingNumber(e.target.value)}
+                      placeholder="Entrez votre numéro de suivi"
+                      className="w-full p-2 border rounded-md"
+                    />
                   </div>
+                  <Button onClick={handleTrack} disabled={loading} className="w-full">
+                    {loading ? 'Recherche...' : 'Suivre'}
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Order Status */}
           <div className="lg:col-span-2">
             {order ? (
               <Card>
                 <CardHeader>
-                  <CardTitle>Statut de la commande</CardTitle>
+                  <CardTitle className="flex items-center">
+                    <Package className="h-5 w-5 mr-2" />
+                    Détails de la commande
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="flex justify-between items-center p-4 bg-green-50 rounded-lg">
-                      <div>
-                        <p className="text-sm text-gray-600">Numéro de suivi</p>
-                        <p className="font-bold">{order.trackingNumber}</p>
-                      </div>
-                      <div className="text-right">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                          order.status === 'delivered' ? 'bg-green-100 text-green-800' :
-                          order.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
-                          order.status === 'processing' ? 'bg-yellow-100 text-yellow-800' :
-                          'bg-gray-100 text-gray-800'
-                        }`}>
-                          {order.status === 'delivered' ? 'Livré' :
-                           order.status === 'shipped' ? 'Expédié' :
-                           order.status === 'processing' ? 'En traitement' :
-                           order.status === 'pending' ? 'En attente' : 'Inconnu'}
-                        </span>
-                      </div>
+                    <div>
+                      <h3 className="font-semibold">Commande #{order.id}</h3>
+                      <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                        order.status === 'delivered' ? 'bg-green-100 text-green-800' :
+                        order.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
+                        order.status === 'processing' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-gray-100 text-gray-800'
+                      }`}>
+                        {order.status === 'delivered' ? 'Livré' :
+                         order.status === 'shipped' ? 'Expédié' :
+                         order.status === 'processing' ? 'En traitement' :
+                         order.status === 'pending' ? 'En attente' : 'Inconnu'}
+                      </span>
                     </div>
 
                     <div className="border-t pt-4">
@@ -142,12 +126,13 @@ export default function TrackingPage() {
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-600">Total:</span>
-                          <span className="font-medium">{order.total.toFixed(2)} €</span>
+                          <span className="font-medium">{order.total ? order.total.toFixed(2) : '0.00'} €</span>
                         </div>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </CardContent>
+              </Card>
             ) : (
               <Card>
                 <CardContent className="text-center py-8">

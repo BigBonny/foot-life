@@ -119,7 +119,7 @@ export default function BestSellersPage() {
                       National
                     </div>
                   )}
-                  {product.stock <= 5 && (
+                  {product.stock && product.stock <= 5 && (
                     <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
                       Dernières pièces
                     </div>
