@@ -14,8 +14,7 @@ export async function GET() {
 
     const { data, error } = await supabase
       .from('products')
-      .select('count(*)')
-      .single()
+      .select('*', { count: 'exact' })
 
     if (error) {
       console.error('Database error:', error)
@@ -25,11 +24,13 @@ export async function GET() {
       }, { status: 500 })
     }
 
+    const productCount = data?.length || 0
+
     console.log('Database connected successfully!')
 
     return NextResponse.json({ 
       message: 'Database connected!',
-      productCount: data.count,
+      productCount: productCount,
       supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
       timestamp: new Date().toISOString()
     })
