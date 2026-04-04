@@ -14,7 +14,7 @@ export async function GET() {
 
     const { data, error } = await supabase
       .from('products')
-      .select('*', { count: 'exact' })
+      .select('id')
 
     if (error) {
       console.error('Database error:', error)
