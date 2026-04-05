@@ -7,15 +7,15 @@ import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react'
 const faqs = [
   {
     question: "Quels sont les délais de livraison ?",
-    answer: "Nous livrons en France métropolitaine sous 48-72h ouvrables. Pour les DOM-TOM et l'international, les délais peuvent varier de 5 à 10 jours ouvrables. Vous recevrez un email de suivi dès que votre commande sera expédiée."
+    answer: "Nous livrons en France métropolitaine rapidement. Pour les DOM-TOM et l'international, les délais peuvent varier. Vous recevrez un email de suivi dès que votre commande sera expédiée."
   },
   {
     question: "Puis-je retourner un article ?",
-    answer: "Oui, vous pouvez retourner tout article dans un délai de 30 jours après réception. Les articles doivent être neufs, non portés, avec toutes les étiquettes intactes et dans leur emballage d'origine. Les frais de retour sont à notre charge pour les retours sous 14 jours."
+    answer: "Oui, vous pouvez retourner tout article. Les articles doivent être neufs, non portés, avec toutes les étiquettes intactes et dans leur emballage d'origine. Les frais de retour sont à notre charge."
   },
   {
     question: "Les maillots sont-ils authentiques ?",
-    answer: "Absolument ! Tous nos maillots sont 100% authentiques et proviennent directement des fabricants officiels. Nous garantissons l'authenticité de tous nos produits sous peine de remboursement intégral."
+    answer: "Nos maillots sont de grande qualité et proviennent des meilleures marques. Nous vous garantissons des produits de qualité."
   },
   {
     question: "Quelles sont les méthodes de paiement acceptées ?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "Que faire si je reçois un article défectueux ?",
-    answer: "En cas de défaut de fabrication, contactez-nous dans les 48h suivant la réception. Nous vous proposerons soit un remplacement immédiat, soit un remboursement intégral, y compris les frais de port."
+    answer: "En cas de défaut de fabrication, contactez-nous rapidement. Nous vous proposerons soit un remplacement, soit un remboursement intégral, y compris les frais de port."
   },
   {
     question: "Suivez-vous les soldes et promotions ?",

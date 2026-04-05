@@ -100,7 +100,7 @@ export function EnhancedHero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              Les <Link href="/products" className="text-white hover:text-yellow-300 underline transition-colors">maillots de football</Link> authentiques des plus grands clubs
+              Les <Link href="/products" className="text-white hover:text-yellow-300 underline transition-colors">maillots de football</Link> des plus grands clubs
             </motion.p>
             
             <motion.p 
@@ -109,7 +109,7 @@ export function EnhancedHero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
-              et équipes nationales • 100% Originaux • Livraison 48h
+              et équipes nationales • Qualité premium • Expédition rapide
             </motion.p>
           </motion.div>
 
@@ -148,9 +148,9 @@ export function EnhancedHero() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
           >
             {[
-              { icon: Shield, title: "100% Authentique", desc: "Produits certifiés" },
-              { icon: Zap, title: "Livraison 48h", desc: "Express disponible" },
-              { icon: Sparkles, title: "30j Retours", desc: "Satisfait ou remboursé" },
+              { icon: Shield, title: "Qualité premium", desc: "Produits certifiés" },
+              { icon: Zap, title: "Expédition rapide", desc: "Livraison express" },
+              { icon: Sparkles, title: "Service client", desc: "Support disponible" },
             ].map((feature, index) => (
               <motion.div
                 key={index}

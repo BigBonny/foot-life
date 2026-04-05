@@ -7,20 +7,20 @@ import { Shield, Truck, RotateCcw, Award, Clock, Headphones } from 'lucide-react
 const features = [
   {
     icon: Shield,
-    title: '100% Authentique',
-    description: 'Tous nos maillots sont certifiés authentiques et proviennent directement des fabricants officiels',
+    title: 'Qualité Premium',
+    description: 'Tous nos maillots sont de qualité premium et proviennent des meilleures marques',
     color: 'from-blue-500 to-blue-600',
   },
   {
     icon: Truck,
-    title: 'Livraison Express',
-    description: 'Livraison en 48-72h partout en France. Suivi en temps réel de votre commande',
+    title: 'Livraison Rapide',
+    description: 'Livraison rapide partout en France. Suivi en temps réel de votre commande',
     color: 'from-green-500 to-green-600',
   },
   {
     icon: RotateCcw,
-    title: 'Retours Faciles',
-    description: '30 jours pour retourner votre commande. Remboursement sous 48h',
+    title: 'Service Client',
+    description: 'Support client disponible pour toutes vos questions',
     color: 'from-orange-500 to-orange-600',
   },
   {

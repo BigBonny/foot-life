@@ -421,11 +421,11 @@ export default function ProductDetailPage() {
               </div>
               <div className="text-center">
                 <Shield className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                <span className="text-sm text-gray-600">Garantie 2 ans</span>
+                <span className="text-sm text-gray-600">Service client</span>
               </div>
               <div className="text-center">
                 <RotateCcw className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                <span className="text-sm text-gray-600">Retour 30j</span>
+                <span className="text-sm text-gray-600">Support disponible</span>
               </div>
             </div>
           </motion.div>
@@ -466,7 +466,7 @@ export default function ProductDetailPage() {
             <CardContent className="p-6">
               <h3 className="font-semibold mb-3">Livraison</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Livraison 2-3 jours ouvrés</li>
+                <li>• Livraison rapide</li>
                 <li>• Suivi de colis inclus</li>
                 <li>• Point relais disponible</li>
                 <li>• Signature à la livraison</li>

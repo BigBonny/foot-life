@@ -185,9 +185,9 @@ export default function BestSellersPage() {
             <div className="bg-red-100 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
               <Star className="h-8 w-8 text-red-600" />
             </div>
-            <h3 className="font-semibold mb-2">Qualité Garantie</h3>
+            <h3 className="font-semibold mb-2">Qualité Premium</h3>
             <p className="text-gray-600 text-sm">
-              Produits authentiques et de haute qualité
+              Produits de haute qualité
             </p>
           </div>
         </div>

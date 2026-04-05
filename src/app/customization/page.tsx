@@ -81,7 +81,7 @@ export default function CustomizationPage() {
                 <h3 className="font-medium mb-3">⚡ Service Express</h3>
                 <div className="p-4 bg-yellow-50 rounded-lg">
                   <p className="text-sm text-gray-700 mb-2">
-                    Recevez votre maillot personnalisé en 48h !
+                    Recevez votre maillot personnalisé rapidement !
                   </p>
                   <p className="text-xs text-gray-600">
                     Service disponible pour les commandes passées avant 14h
@@ -114,16 +114,12 @@ export default function CustomizationPage() {
                 <h3 className="font-medium mb-3">Personnalisation Premium</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <span>Manches courtes</span>
-                    <span className="font-bold text-blue-600">10€</span>
+                    <span>Service Express</span>
+                    <span className="font-bold text-blue-600">25€</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span>Patch Ligue des Champions</span>
                     <span className="font-bold text-blue-600">15€</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Service Express (48h)</span>
-                    <span className="font-bold text-blue-600">25€</span>
                   </div>
                 </div>
               </div>
@@ -173,7 +169,7 @@ export default function CustomizationPage() {
               </div>
               <h3 className="font-medium mb-2">Validez</h3>
               <p className="text-sm text-gray-600">
-                Finalisez votre commande et recevez en 48h
+                Finalisez votre commande et recevez rapidement
               </p>
             </div>
           </div>

@@ -23,7 +23,7 @@ export function Hero() {
           </div>
           
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-            Les maillots de football authentiques des plus grands clubs et équipes nationales
+            Les maillots de football des plus grands clubs et équipes nationales
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

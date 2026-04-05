@@ -161,9 +161,9 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {[
-                    { q: 'Quels sont les délais de livraison?', a: 'Livraison sous 48-72h en France métropolitaine.' },
-                    { q: 'Puis-je retourner un article?', a: 'Oui, retour possible sous 30 jours.' },
-                    { q: 'Les maillots sont-ils authentiques?', a: 'Oui, tous nos <Link href="/products" className="text-blue-600 hover:underline">produits</Link> sont 100% authentiques.' },
+                    { q: 'Quels sont les délais de livraison?', a: 'Livraison rapide en France métropolitaine.' },
+                    { q: 'Puis-je retourner un article?', a: 'Oui, retour possible.' },
+                    { q: 'Quelle est la qualité des produits?', a: 'Oui, tous nos <Link href="/products" className="text-blue-600 hover:underline">produits</Link> sont de grande qualité.' },
                   ].map((faq, index) => (
                     <motion.div 
                       key={index}
