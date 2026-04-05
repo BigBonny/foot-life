@@ -51,7 +51,7 @@ export function Footer() {
                 <ShoppingBag className="h-6 w-6 text-white" />
               </motion.div>
               <h3 className="text-2xl font-black bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
-                Foot Life
+                Prime Kicks
               </h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
@@ -212,7 +212,7 @@ export function Footer() {
             className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
           >
             <p className="text-gray-400 text-sm">
-              © 2024 Foot Life. Tous droits réservés. Made with ❤️ pour les passionnés de football.
+              © 2024 Prime Kicks. Tous droits réservés. Made with ❤️ pour les passionnés de football.
             </p>
             <div className="flex space-x-6 text-sm text-gray-400">
               <Link href="/privacy" className="hover:text-white transition-colors">

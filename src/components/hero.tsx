@@ -18,7 +18,7 @@ export function Hero() {
           <div className="flex items-center justify-center mb-6">
             <Trophy className="h-12 w-12 text-yellow-400 mr-4" />
             <h1 className="text-4xl md:text-6xl font-bold">
-              Foot Life
+              Prime Kicks
             </h1>
           </div>
           
@@ -35,29 +35,6 @@ export function Hero() {
             <Link href="/best-sellers" className="border border-white text-white hover:bg-white hover:text-blue-600 text-lg px-8 py-4 rounded-lg transition-colors">
               Meilleures ventes
             </Link>
-          </div>
-          
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-2">100%</h3>
-                <p className="text-lg">Authentique</p>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-2">48h</h3>
-                <p className="text-lg">Livraison</p>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-2">30j</h3>
-                <p className="text-lg">Retour gratuit</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

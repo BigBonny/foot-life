@@ -90,7 +90,7 @@ export function EnhancedHero() {
                 <Trophy className="h-16 w-16 text-yellow-400 mr-4" />
               </motion.div>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
-                Foot Life
+                Prime Kicks
               </h1>
             </div>
             

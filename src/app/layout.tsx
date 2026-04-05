@@ -8,7 +8,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Foot Life - Maillots de Football Premium',
+  title: 'Prime Kicks - Maillots de Football Premium',
   description: 'Boutique spécialisée dans les maillots de football des plus grands clubs et équipes nationales',
 }
 

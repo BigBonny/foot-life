@@ -107,7 +107,7 @@ export function Navigation() {
               <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">FL</span>
               </div>
-              <span className="font-bold text-xl">Foot Life</span>
+              <span className="font-bold text-xl">Prime Kicks</span>
             </Link>
 
             {/* Desktop Navigation */}

@@ -1,6 +1,7 @@
 {
-  "name": "ilyes-foot-life",
+  "name": "prime-kicks",
   "version": "0.1.0",
+  "description": "Prime Kicks - Maillots de Football Premium",
   "private": true,
   "scripts": {
     "dev": "next dev",

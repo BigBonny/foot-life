@@ -47,7 +47,7 @@ export function EnhancedNewsletter() {
       } else {
         toast({
           title: 'Inscription réussie !',
-          description: 'Bienvenue dans la communauté Foot Life',
+          description: 'Bienvenue dans la communauté Prime Kicks',
         })
         
         setIsSubscribed(true)
@@ -146,7 +146,7 @@ export function EnhancedNewsletter() {
               Rejoignez l'Équipe
             </h2>
             <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              Inscrivez-vous à notre newsletter et ne manquez aucune actualité Foot Life
+              Inscrivez-vous à notre newsletter et ne manquez aucune actualité Prime Kicks
             </p>
           </motion.div>
 
