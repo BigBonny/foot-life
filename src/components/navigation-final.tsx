@@ -224,13 +224,15 @@ export function NavigationFinal() {
                         <Package className="h-4 w-4 mr-3" />
                         Mes commandes
                       </Link>
-                      <button 
-                        className="w-full text-left text-red-600 hover:bg-red-50 transition-colors py-3 px-4 rounded-lg font-medium flex items-center"
-                        onClick={handleSignOut}
-                      >
-                        <LogOut className="h-4 w-4 mr-3" />
-                        Déconnexion
-                      </button>
+                      <SignOutButton>
+                        <button 
+                          className="w-full max-w-xs mx-auto text-center text-red-600 hover:bg-red-50 transition-colors py-3 px-4 rounded-lg font-medium flex items-center justify-center"
+                          onClick={handleSignOut}
+                        >
+                          <LogOut className="h-4 w-4 mr-3" />
+                          Déconnexion
+                        </button>
+                      </SignOutButton>
                     </>
                   ) : (
                     <>
