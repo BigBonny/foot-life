@@ -10,6 +10,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Prime Kicks - Maillots de Football Premium',
   description: 'Boutique spécialisée dans les maillots de football des plus grands clubs et équipes nationales',
+  icons: {
+    icon: '/logo/logo 2.png',
+    shortcut: '/logo/logo 2.png',
+    apple: '/logo/logo 2.png',
+  },
 }
 
 export default function RootLayout({
