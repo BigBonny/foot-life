@@ -159,19 +159,19 @@ export default function CartPage() {
                 >
                   <Card className="group overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0">
                     <CardContent className="p-6">
-                      <div className="flex gap-6">
-                        <div className="relative w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
+                      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div className="relative w-full sm:w-24 h-48 sm:h-24 flex-shrink-0 overflow-hidden rounded-lg bg-gray-100">
                           <Image
                             src={item.image}
                             alt={item.name}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            sizes="(max-width: 100px) 100vw"
+                            sizes="(max-width: 640px) 100vw, 100px"
                           />
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-bold text-lg text-gray-900 mb-2">
+                          <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-2">
                             {item.name}
                           </h3>
                           {item.custom_name && (
@@ -185,12 +185,12 @@ export default function CartPage() {
                           <p className="text-sm text-gray-600 mb-1">
                             Couleur: {item.color}
                           </p>
-                          <p className="text-xl font-black text-blue-600">
+                          <p className="text-lg sm:text-xl font-black text-blue-600">
                             {item.price.toFixed(2)} €
                           </p>
                         </div>
 
-                        <div className="flex flex-col items-center space-y-2">
+                        <div className="flex flex-row sm:flex-col items-center justify-between sm:justify-center space-x-4 sm:space-x-0 sm:space-y-2">
                           <div className="flex items-center space-x-2">
                             <motion.button
                               whileHover={{ scale: 1.1 }}

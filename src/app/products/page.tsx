@@ -172,12 +172,12 @@ export default function ProductsPage() {
             />
           </div>
           
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 variant={selectedCategory === 'all' ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory('all')}
-                className={`px-6 py-6 rounded-xl font-semibold ${
+                className={`px-4 sm:px-6 py-4 sm:py-6 rounded-xl font-semibold text-sm sm:text-base whitespace-nowrap ${
                   selectedCategory === 'all' 
                     ? 'bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg' 
                     : 'border-2 border-gray-200 hover:border-blue-500'
@@ -191,7 +191,7 @@ export default function ProductsPage() {
               <Button
                 variant={selectedCategory === 'club' ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory('club')}
-                className={`px-6 py-6 rounded-xl font-semibold ${
+                className={`px-4 sm:px-6 py-4 sm:py-6 rounded-xl font-semibold text-sm sm:text-base whitespace-nowrap ${
                   selectedCategory === 'club' 
                     ? 'bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg' 
                     : 'border-2 border-gray-200 hover:border-blue-500'
@@ -205,7 +205,7 @@ export default function ProductsPage() {
               <Button
                 variant={selectedCategory === 'national' ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory('national')}
-                className={`px-6 py-6 rounded-xl font-semibold ${
+                className={`px-4 sm:px-6 py-4 sm:py-6 rounded-xl font-semibold text-sm sm:text-base whitespace-nowrap ${
                   selectedCategory === 'national' 
                     ? 'bg-gradient-to-r from-green-600 to-green-700 shadow-lg' 
                     : 'border-2 border-gray-200 hover:border-green-500'
@@ -259,7 +259,7 @@ export default function ProductsPage() {
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
             >
               {filteredProducts.map((product) => (
                 <motion.div

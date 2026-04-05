@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { useUser, SignOutButton } from '@clerk/nextjs'
 import { Button } from '@/components/ui/button'
 import { ShoppingCart, Menu, X, User, LogOut, Package, Heart } from 'lucide-react'
@@ -108,9 +109,9 @@ export function Navigation() {
               <img 
                 src="/primekicks-logo.png" 
                 alt="Prime Kicks Logo"
-                className="h-20 w-20 rounded-full object-cover"
+                className="h-12 w-12 sm:h-16 sm:w-16 rounded-full object-cover"
               />
-              <span className="font-bold text-xl">Prime Kicks</span>
+              <span className="font-bold text-lg sm:text-xl hidden sm:inline">Prime Kicks</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -130,61 +131,66 @@ export function Navigation() {
             </div>
 
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-4">
-              {/* Favorites */}
-              <FavoritesBadge />
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Favorites - Hidden on smallest screens */}
+              <div className="hidden sm:block">
+                <FavoritesBadge />
+              </div>
 
               {/* Cart */}
               <CartBadge />
 
-              {/* User Menu */}
-              {isSignedIn ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="flex items-center space-x-2">
-                      <User className="h-4 w-4" />
-                      <span className="hidden md:inline">{user?.firstName || 'Compte'}</span>
+              {/* User Menu - Hidden on mobile */}
+              <div className="hidden md:block">
+                {isSignedIn ? (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+                        <User className="h-4 w-4" />
+                        <span className="hidden lg:inline">{user?.firstName || 'Compte'}</span>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem asChild>
+                        <Link href="/dashboard" className="flex items-center space-x-2">
+                          <Package className="h-4 w-4" />
+                          <span>Tableau de bord</span>
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link href="/orders" className="flex items-center space-x-2">
+                          <Package className="h-4 w-4" />
+                          <span>Mes commandes</span>
+                        </Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <SignOutButton>
+                          <div className="flex items-center space-x-2 w-full cursor-pointer">
+                            <LogOut className="h-4 w-4" />
+                            <span>Déconnexion</span>
+                          </div>
+                        </SignOutButton>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <div className="flex items-center space-x-2">
+                    <Button variant="ghost" size="sm" asChild>
+                      <Link href="/sign-in">Connexion</Link>
                     </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard" className="flex items-center space-x-2">
-                        <Package className="h-4 w-4" />
-                        <span>Tableau de bord</span>
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/orders" className="flex items-center space-x-2">
-                        <Package className="h-4 w-4" />
-                        <span>Mes commandes</span>
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <SignOutButton>
-                        <div className="flex items-center space-x-2 w-full cursor-pointer">
-                          <LogOut className="h-4 w-4" />
-                          <span>Déconnexion</span>
-                        </div>
-                      </SignOutButton>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <div className="flex items-center space-x-2">
-                  <Button variant="ghost" size="sm" asChild>
-                    <Link href="/sign-in">Connexion</Link>
-                  </Button>
-                  <Button size="sm" asChild>
-                    <Link href="/sign-up">S'inscrire</Link>
-                  </Button>
-                </div>
-              )}
+                    <Button size="sm" asChild>
+                      <Link href="/sign-up">S'inscrire</Link>
+                    </Button>
+                  </div>
+                )}
+              </div>
 
               {/* Mobile Menu Toggle */}
               <button
                 type="button"
                 onClick={toggleMobileMenu}
-                className="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors"
+                className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -197,22 +203,104 @@ export function Navigation() {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden border-t py-4">
-              <div className="flex flex-col space-y-3">
-                <Link href="/products" className="text-gray-700 hover:text-blue-600 transition">
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t bg-white"
+            >
+              <div className="flex flex-col items-center py-4 px-2 space-y-1">
+                <Link 
+                  href="/products" 
+                  className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Tous les maillots
                 </Link>
-                <Link href="/best-sellers" className="text-gray-700 hover:text-blue-600 transition">
+                <Link 
+                  href="/best-sellers" 
+                  className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Meilleures ventes
                 </Link>
-                <Link href="/world-cup" className="text-gray-700 hover:text-blue-600 transition">
+                <Link 
+                  href="/world-cup" 
+                  className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Coupe du Monde
                 </Link>
-                <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition">
+                <Link 
+                  href="/contact" 
+                  className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Contact
                 </Link>
+                
+                {/* Mobile User Links */}
+                <div className="border-t pt-4 mt-2 space-y-1">
+                  {isSignedIn ? (
+                    <>
+                      <Link 
+                        href="/dashboard" 
+                        className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium flex items-center"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <User className="h-4 w-4 mr-3" />
+                        Mon compte
+                      </Link>
+                      <Link 
+                        href="/orders" 
+                        className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium flex items-center"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Package className="h-4 w-4 mr-3" />
+                        Mes commandes
+                      </Link>
+                      <button 
+                        className="w-full text-left text-red-600 hover:bg-red-50 transition-colors py-3 px-4 rounded-lg font-medium flex items-center"
+                        onClick={() => {
+                          setIsMobileMenuOpen(false)
+                          // Handle sign out
+                        }}
+                      >
+                        <LogOut className="h-4 w-4 mr-3" />
+                        Déconnexion
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        asChild
+                        className="text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                      >
+                        <Link 
+                          href="/sign-in" 
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          Connexion
+                        </Link>
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        asChild
+                      >
+                        <Link 
+                          href="/sign-up" 
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          S'inscrire
+                        </Link>
+                      </Button>
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
       </nav>

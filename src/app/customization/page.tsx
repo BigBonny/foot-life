@@ -111,15 +111,15 @@ export default function CustomizationPage() {
               </div>
               
               <div className="pb-4">
-                <h3 className="font-medium mb-3">Personnalisation Premium</h3>
+                <h3 className="font-medium mb-2">Personnalisation Premium</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span>Service Express</span>
-                    <span className="font-bold text-blue-600">25€</span>
+                    <span className="font-bold text-blue-600">18€</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span>Patch Ligue des Champions</span>
-                    <span className="font-bold text-blue-600">15€</span>
+                    <span className="font-bold text-blue-600">18€</span>
                   </div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function CustomizationPage() {
                 <p className="text-sm text-gray-700 mb-3">
                   Nom + Numéro + Patch + Manches courtes + Service Express
                 </p>
-                <p className="text-2xl font-bold text-blue-600">45€</p>
+                <p className="text-2xl font-bold text-blue-600">48€</p>
                 <p className="text-xs text-gray-600">
                   Économisez 15€ par rapport au prix individuel
                 </p>
