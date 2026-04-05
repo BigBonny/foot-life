@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useUser } from '@clerk/nextjs'
-import { useCart } from '@/hooks/use-cart-final'
+import { useCart } from '@/hooks/use-cart-v2'
 import { supabase } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -27,69 +27,6 @@ export default function CartPage() {
   const { isSignedIn, user } = useUser()
   const { items, updateQuantity, removeItem, getTotalPrice } = useCart()
   const [isLoading, setIsLoading] = useState(false)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-
-  // Load cart from database on page load
-  useEffect(() => {
-    const loadCartFromDatabase = async () => {
-      if (!isSignedIn || !user) {
-        console.log('Not signed in, skipping database load')
-        return
-      }
-      
-      console.log('Loading cart from database for user:', user.id)
-      setIsLoading(true)
-      
-      try {
-        const { data, error } = await supabase
-          .from('cart_items')
-          .select('*')
-          .eq('user_id', user.id)
-          .order('created_at', { ascending: false })
-
-        if (error) {
-          console.error('Database error:', error)
-          return
-        }
-
-        const cartItems = data || []
-        console.log('Found cart items in database:', cartItems)
-        
-        if (cartItems.length > 0) {
-          const items: CartItem[] = cartItems.map(item => ({
-            id: item.product_id,
-            name: item.custom_name ? `${item.product_name} (${item.custom_name} #${item.custom_number})` : item.product_name,
-            price: item.product_price,
-            image: item.product_image,
-            size: item.size,
-            color: item.color,
-            quantity: item.quantity,
-            custom_name: item.custom_name,
-            custom_number: item.custom_number,
-          }))
-
-          console.log('Setting cart items from database:', items)
-          const store = useCart.getState()
-          store.setItems(items)
-          console.log('Cart items set successfully')
-        } else {
-          console.log('No cart items found in database')
-        }
-      } catch (error) {
-        console.error('Error loading cart from database:', error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    // Add delay to ensure auth is ready and localStorage has loaded
-    const timer = setTimeout(() => {
-      loadCartFromDatabase()
-    }, 500)
-    
-    return () => clearTimeout(timer)
-  }, [isSignedIn, user?.id])
 
   // Redirect to sign-in if not logged in
   useEffect(() => {
@@ -155,7 +92,6 @@ export default function CartPage() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                   layout
-                  ref={ref}
                 >
                   <Card className="group overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all duration-300 border-0">
                     <CardContent className="p-6">

@@ -24,9 +24,10 @@ interface CartStore {
   getTotalItems: () => number
   getTotalPrice: () => number
   clearCart: () => void
-  syncWithDatabase: (userId?: string) => void
-  loadFromDatabase: (userId: string) => void
+  syncWithDatabase: (userId?: string) => Promise<void>
+  loadFromDatabase: (userId: string) => Promise<void>
   setItems: (items: CartItem[]) => void
+  initializeCart: (userId?: string) => Promise<void>
 }
 
 export const useCart = create<CartStore>()(
@@ -91,6 +92,8 @@ export const useCart = create<CartStore>()(
 
       clearCart: () => {
         set({ items: [] })
+        // Also clear localStorage immediately
+        localStorage.removeItem('cart-storage')
       },
 
       syncWithDatabase: async (userId?: string) => {
@@ -189,6 +192,46 @@ export const useCart = create<CartStore>()(
         } catch (error) {
           console.error('Error loading cart from database:', error)
         }
+      },
+
+      initializeCart: async (userId?: string) => {
+        console.log('Initializing cart for user:', userId)
+        
+        // First, try to load from database if user is signed in
+        if (userId) {
+          try {
+            const { data, error } = await supabase
+              .from('cart_items')
+              .select('*')
+              .eq('user_id', userId)
+              .order('created_at', { ascending: false })
+
+            if (!error && data && data.length > 0) {
+              console.log('Loading cart from database for user:', userId)
+              
+              const items: CartItem[] = data.map(item => ({
+                id: item.product_id,
+                name: item.custom_name ? `${item.product_name} (${item.custom_name} #${item.custom_number})` : item.product_name,
+                price: item.product_price,
+                image: item.product_image,
+                size: item.size,
+                color: item.color,
+                quantity: item.quantity,
+                custom_name: item.custom_name,
+                custom_number: item.custom_number,
+              }))
+
+              set({ items })
+              return
+            }
+          } catch (error) {
+            console.error('Error loading from database:', error)
+          }
+        }
+        
+        // If no user or no database items, use localStorage (for guests)
+        console.log('Using localStorage cart')
+        // localStorage will be loaded automatically by Zustand persist
       },
     }),
     {

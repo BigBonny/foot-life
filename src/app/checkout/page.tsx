@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useUser } from '@clerk/nextjs'
-import { useCart } from '@/hooks/use-cart-final'
+import { useCart } from '@/hooks/use-cart-v2'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ShoppingBag, CreditCard } from 'lucide-react'

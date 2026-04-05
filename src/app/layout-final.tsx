@@ -3,8 +3,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { NavigationFinal } from '@/components/navigation-final'
 import { Footer } from '@/components/enhanced-footer'
 import { Toaster } from '@/components/ui/toaster'
-import { CartSyncV2 } from '@/components/cart-sync-v2'
-import { UserSyncClient } from '@/components/user-sync-client'
+import { CartSyncFinal } from '@/components/cart-sync-final'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -28,9 +27,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="fr" suppressHydrationWarning>
         <body className={`${inter.className} min-h-screen bg-gray-50`}>
-          <UserSyncClient />
+          <CartSyncFinal />
           <NavigationFinal />
-          <CartSyncV2 />
           <main className="flex-1">
             {children}
           </main>

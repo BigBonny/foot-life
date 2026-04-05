@@ -2,11 +2,22 @@
 
 import { useEffect } from 'react'
 import { useUser } from '@clerk/nextjs'
-import { useCart } from '@/hooks/use-cart-final'
+import { useCart } from '@/hooks/use-cart-fixed'
 
-export function CartSync() {
+export function CartSyncFixed() {
   const { isSignedIn, user } = useUser()
-  const { items, syncWithDatabase } = useCart()
+  const { items, syncWithDatabase, initializeCart } = useCart()
+
+  // Initialize cart when user signs in or page loads
+  useEffect(() => {
+    if (isSignedIn && user) {
+      // Initialize cart for signed-in user (will load from database first)
+      initializeCart(user.id)
+    } else {
+      // Initialize cart for guest (will use localStorage)
+      initializeCart()
+    }
+  }, [isSignedIn, user?.id, initializeCart])
 
   // Sync cart to database whenever items change (for signed-in users)
   useEffect(() => {
@@ -14,7 +25,7 @@ export function CartSync() {
       const timer = setTimeout(() => {
         console.log('Auto-syncing cart to database for user:', user.id, 'items:', items)
         syncWithDatabase(user.id)
-      }, 500)
+      }, 1000) // Increased delay to avoid rapid syncs
       
       return () => clearTimeout(timer)
     }

@@ -24,9 +24,29 @@ interface CartStore {
   getTotalItems: () => number
   getTotalPrice: () => number
   clearCart: () => void
-  syncWithDatabase: (userId?: string) => void
-  loadFromDatabase: (userId: string) => void
+  syncWithDatabase: (userId?: string) => Promise<void>
+  loadFromDatabase: (userId: string) => Promise<void>
   setItems: (items: CartItem[]) => void
+  initializeCart: (userId?: string) => Promise<void>
+  ensureUserInDatabase: (userId: string) => Promise<void>
+}
+
+// Helper function to get current user ID
+function getCurrentUserId(): string | null {
+  if (typeof window === 'undefined') {
+    return null
+  }
+  
+  try {
+    const authData = localStorage.getItem('clerk-db-jwt')
+    if (authData) {
+      const parsed = JSON.parse(authData)
+      return parsed.sub || parsed.userId || null
+    }
+    return null
+  } catch {
+    return null
+  }
 }
 
 export const useCart = create<CartStore>()(
@@ -53,6 +73,14 @@ export const useCart = create<CartStore>()(
             items: [...items, { ...newItem, quantity: newItem.quantity || 1 }],
           })
         }
+
+        // Auto-sync to database if user is logged in
+        const userId = getCurrentUserId()
+        if (userId) {
+          setTimeout(() => {
+            get().syncWithDatabase(userId)
+          }, 100)
+        }
       },
 
       removeItem: (id: string, size: string, color: string) => {
@@ -61,6 +89,14 @@ export const useCart = create<CartStore>()(
             (item) => !(item.id === id && item.size === size && item.color === color)
           ),
         })
+
+        // Auto-sync to database if user is logged in
+        const userId = getCurrentUserId()
+        if (userId) {
+          setTimeout(() => {
+            get().syncWithDatabase(userId)
+          }, 100)
+        }
       },
 
       updateQuantity: (id: string, size: string, color: string, quantity: number) => {
@@ -76,6 +112,14 @@ export const useCart = create<CartStore>()(
               : item
           ),
         })
+
+        // Auto-sync to database if user is logged in
+        const userId = getCurrentUserId()
+        if (userId) {
+          setTimeout(() => {
+            get().syncWithDatabase(userId)
+          }, 100)
+        }
       },
 
       getTotalItems: () => {
@@ -91,6 +135,10 @@ export const useCart = create<CartStore>()(
 
       clearCart: () => {
         set({ items: [] })
+        // Also clear localStorage immediately
+        if (typeof window !== 'undefined') {
+          localStorage.removeItem('cart-storage')
+        }
       },
 
       syncWithDatabase: async (userId?: string) => {
@@ -148,6 +196,11 @@ export const useCart = create<CartStore>()(
 
       setItems: (newItems: CartItem[]) => {
         set({ items: newItems })
+        
+        // Also update localStorage to maintain consistency
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('cart-storage', JSON.stringify({ state: { items: newItems } }))
+        }
       },
 
       loadFromDatabase: async (userId: string) => {
@@ -185,15 +238,107 @@ export const useCart = create<CartStore>()(
           set({ items })
           
           // Also update localStorage to maintain consistency
-          localStorage.setItem('cart-storage', JSON.stringify({ state: { items } }))
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('cart-storage', JSON.stringify({ state: { items } }))
+          }
         } catch (error) {
           console.error('Error loading cart from database:', error)
+        }
+      },
+
+      initializeCart: async (userId?: string) => {
+        console.log('Initializing cart for user:', userId)
+        
+        // First, try to load from database if user is signed in
+        if (userId) {
+          try {
+            const { data, error } = await supabase
+              .from('cart_items')
+              .select('*')
+              .eq('user_id', userId)
+              .order('created_at', { ascending: false })
+
+            if (!error && data && data.length > 0) {
+              console.log('Loading cart from database for user:', userId)
+              
+              const items: CartItem[] = data.map(item => ({
+                id: item.product_id,
+                name: item.custom_name ? `${item.product_name} (${item.custom_name} #${item.custom_number})` : item.product_name,
+                price: item.product_price,
+                image: item.product_image,
+                size: item.size,
+                color: item.color,
+                quantity: item.quantity,
+                custom_name: item.custom_name,
+                custom_number: item.custom_number,
+              }))
+
+              set({ items })
+              console.log('Cart loaded from database successfully')
+              return
+            }
+          } catch (error) {
+            console.error('Error loading from database:', error)
+          }
+        }
+        
+        // If no user or no database items, use localStorage (for guests)
+        console.log('Using localStorage cart')
+        // localStorage will be loaded automatically by Zustand persist
+      },
+
+      ensureUserInDatabase: async (userId: string) => {
+        console.log('Ensuring user exists in database:', userId)
+        
+        try {
+          // Check if user exists in Supabase
+          const { data: existingUser, error: fetchError } = await supabase
+            .from('users')
+            .select('*')
+            .eq('clerk_id', userId)
+            .single()
+
+          if (fetchError && fetchError.code !== 'PGRST116') {
+            console.error('Error checking user existence:', fetchError)
+            return
+          }
+
+          // If user doesn't exist, create them
+          if (!existingUser) {
+            console.log('Creating new user in database:', userId)
+            
+            const { data: newUser, error: insertError } = await supabase
+              .from('users')
+              .insert({
+                clerk_id: userId,
+                email: '', // Will be updated by Clerk
+                first_name: '', // Will be updated by Clerk
+                last_name: '', // Will be updated by Clerk
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString(),
+              })
+              .select()
+              .single()
+
+            if (insertError) {
+              console.error('Error creating user:', insertError)
+            } else {
+              console.log('User created successfully:', newUser)
+            }
+          } else {
+            console.log('User already exists in database:', existingUser)
+          }
+        } catch (error) {
+          console.error('Error ensuring user in database:', error)
         }
       },
     }),
     {
       name: 'cart-storage',
       storage: createJSONStorage(() => localStorage),
+      onRehydrateStorage: (state) => {
+        console.log('Cart rehydrated from localStorage:', state?.items || [])
+      }
     }
   )
 )
