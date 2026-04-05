@@ -93,7 +93,7 @@ export default function ProductDetailPage() {
             product_id: product.id,
             product_name: product.name,
             product_image: product.image,
-            product_price: product.price,
+            product_price: product.price + 3, // Add 3€ for personalization
             custom_name: customName,
             custom_number: parseInt(customNumber),
             custom_size: selectedSize,
@@ -107,7 +107,7 @@ export default function ProductDetailPage() {
         addItem({
           id: product.id,
           name: `${product.name} (${customName} #${customNumber})`,
-          price: product.price,
+          price: product.price + 3, // Add 3€ for personalization
           image: product.image,
           quantity,
           size: selectedSize,
@@ -350,7 +350,7 @@ export default function ProductDetailPage() {
                     onChange={(e) => setIsPersonalized(e.target.checked)}
                     className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                   />
-                  <span className="text-sm text-gray-600">Ajouter nom et numéro</span>
+                  <span className="text-sm text-gray-600">Ajouter nom et numéro (+3€)</span>
                 </label>
               </div>
               
@@ -361,6 +361,15 @@ export default function ProductDetailPage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="space-y-4"
                 >
+                  <div className="p-4 bg-blue-50 rounded-lg">
+                    <p className="text-sm text-blue-800 font-medium">
+                      ⚡ Personnalisation de base : +3€
+                    </p>
+                    <p className="text-xs text-blue-700 mt-1">
+                      Ajoutez votre nom et numéro personnalisés sur votre maillot
+                    </p>
+                  </div>
+                  
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Nom personnalisé

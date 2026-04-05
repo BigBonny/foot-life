@@ -12,6 +12,14 @@ export default function CustomizationPage() {
             <div className="space-y-6">
               <div>
                 <h3 className="font-medium mb-3">📝 Nom et Numéro</h3>
+                <div className="p-4 bg-blue-50 rounded-lg mb-4">
+                  <p className="text-sm text-blue-800 font-medium mb-2">
+                    ⚡ Personnalisation de base : +3€
+                  </p>
+                  <p className="text-xs text-blue-700">
+                    Ajoutez votre nom et numéro personnalisés sur votre maillot
+                  </p>
+                </div>
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -40,7 +48,10 @@ export default function CustomizationPage() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-3">🎨 Options Supplémentaires</h3>
+                <h3 className="font-medium mb-3">🎨 Options Supplémentaires (Optionnelles)</h3>
+                <p className="text-xs text-gray-600 mb-4">
+                  Ces options sont facultatives et s'ajoutent à la personnalisation de base
+                </p>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <input
@@ -49,7 +60,7 @@ export default function CustomizationPage() {
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                     />
                     <label htmlFor="patch" className="text-sm text-gray-700">
-                      Ajouter un patch (logo officiel)
+                      Ajouter un patch (logo officiel) (+15€)
                     </label>
                   </div>
                   
@@ -78,13 +89,13 @@ export default function CustomizationPage() {
               </div>
 
               <div>
-                <h3 className="font-medium mb-3">⚡ Service Express</h3>
+                <h3 className="font-medium mb-3">⚡ Service Express (Optionnel)</h3>
                 <div className="p-4 bg-yellow-50 rounded-lg">
                   <p className="text-sm text-gray-700 mb-2">
                     Recevez votre maillot personnalisé rapidement !
                   </p>
                   <p className="text-xs text-gray-600">
-                    Service disponible pour les commandes passées avant 14h
+                    Service disponible pour les commandes passées avant 14h (+15€)
                   </p>
                 </div>
               </div>
@@ -101,7 +112,7 @@ export default function CustomizationPage() {
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
                     <span>Nom et Numéro</span>
-                    <span className="font-bold text-green-600">Gratuit</span>
+                    <span className="font-bold text-blue-600">3€</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span>Patch officiel</span>
