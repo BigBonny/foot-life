@@ -24,7 +24,7 @@ interface CartStore {
   getTotalItems: () => number
   getTotalPrice: () => number
   clearCart: () => void
-  syncWithDatabase: () => void
+  syncWithDatabase: (userId?: string) => void
   loadFromDatabase: (userId: string) => void
   setItems: (items: CartItem[]) => void
 }
@@ -53,11 +53,6 @@ export const useCart = create<CartStore>()(
             items: [...items, { ...newItem, quantity: newItem.quantity || 1 }],
           })
         }
-
-        // Auto-sync to database after adding item
-        setTimeout(() => {
-          get().syncWithDatabase()
-        }, 100)
       },
 
       removeItem: (id: string, size: string, color: string) => {
@@ -66,11 +61,6 @@ export const useCart = create<CartStore>()(
             (item) => !(item.id === id && item.size === size && item.color === color)
           ),
         })
-
-        // Auto-sync to database after removing item
-        setTimeout(() => {
-          get().syncWithDatabase()
-        }, 100)
       },
 
       updateQuantity: (id: string, size: string, color: string, quantity: number) => {
@@ -86,11 +76,6 @@ export const useCart = create<CartStore>()(
               : item
           ),
         })
-
-        // Auto-sync to database after updating quantity
-        setTimeout(() => {
-          get().syncWithDatabase()
-        }, 100)
       },
 
       getTotalItems: () => {
@@ -106,22 +91,18 @@ export const useCart = create<CartStore>()(
 
       clearCart: () => {
         set({ items: [] })
-        
-        // Auto-sync to database after clearing cart
-        setTimeout(() => {
-          get().syncWithDatabase()
-        }, 100)
       },
 
-      syncWithDatabase: async () => {
+      syncWithDatabase: async (userId?: string) => {
         const { items } = get()
         console.log('Syncing cart to database:', items)
 
+        if (!userId) {
+          console.log('No userId provided, skipping database sync')
+          return
+        }
+
         try {
-          // Get current user ID from Clerk auth context
-          const { data: { user } } = await supabase.auth.getUser()
-          const userId = user?.id || 'user_3BAWl1Nle0eGAtblJQzPKvVSHhG'
-          
           console.log('Using user ID for sync:', userId)
           
           // Clear existing cart items for this user
@@ -136,7 +117,7 @@ export const useCart = create<CartStore>()(
             const cartItemsToInsert = items.map(item => ({
               user_id: userId,
               product_id: item.id,
-              product_name: item.name.replace(/ \([^)]*\)/, ''), // Remove custom name/number from display name
+              product_name: item.name.replace(/ \([^)]*\)/, ''),
               product_image: item.image,
               product_price: item.price,
               size: item.size,

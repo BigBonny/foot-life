@@ -80,9 +80,10 @@ export function Navigation() {
       
       return () => clearTimeout(timer)
     } else if (!isSignedIn) {
-      // Sync current cart to database before clearing
+      // Sync current cart to database before clearing (only if we have a user)
       console.log('Syncing cart to database before logout')
-      syncWithDatabase()
+      // Note: localStorage already has the cart, so we don't need to sync here
+      // The cart will be loaded from localStorage when user logs back in
       clearCart()
     }
   }, [isSignedIn, user?.id])
