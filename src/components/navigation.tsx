@@ -107,7 +107,7 @@ export function Navigation() {
               <img 
                 src="/primekicks-favicon.png" 
                 alt="Prime Kicks Logo"
-                className="h-12 w-12 rounded-full object-cover"
+                className="h-16 w-16 rounded-full object-cover"
               />
               <span className="font-bold text-xl">Prime Kicks</span>
             </Link>
