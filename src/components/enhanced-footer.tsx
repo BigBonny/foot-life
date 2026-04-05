@@ -34,7 +34,7 @@ export function Footer() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 max-w-4xl mx-auto">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,6 @@ export function Footer() {
               {[
                 { href: "/products", label: "Nos Produits" },
                 { href: "/world-cup", label: "Collection Coupe du Monde" },
-                { href: "/contact", label: "Contact" },
                 { href: "/faq", label: "F.A.Q" },
                 { href: "/orders", label: "Mes Commandes" },
               ].map((item, index) => (
@@ -136,10 +135,8 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { href: "/shipping", label: "Livraison & Retours" },
                 { href: "/sizes", label: "Guide des Tailles" },
                 { href: "/care", label: "Entretien des Maillots" },
-                { href: "/payment", label: "Paiement Sécurisé" },
                 { href: "/newsletter", label: "Newsletter" },
               ].map((item, index) => (
                 <motion.li
@@ -159,49 +156,6 @@ export function Footer() {
               ))}
             </ul>
           </motion.div>
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-4"
-          >
-            <h4 className="text-xl font-bold flex items-center">
-              <Mail className="h-5 w-5 mr-2 text-green-400" />
-              Contact
-            </h4>
-            <div className="space-y-3">
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center space-x-3 text-gray-300"
-              >
-                <Mail className="h-4 w-4 text-blue-400" />
-                <span>contact@footlife.com</span>
-              </motion.div>
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center space-x-3 text-gray-300"
-              >
-                <Phone className="h-4 w-4 text-green-400" />
-                <span>+33 1 234 567 890</span>
-              </motion.div>
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center space-x-3 text-gray-300"
-              >
-                <MapPin className="h-4 w-4 text-red-400" />
-                <span>123 Rue du Football, 75001 Paris</span>
-              </motion.div>
-              <motion.div
-                whileHover={{ x: 5 }}
-                className="flex items-center space-x-3 text-gray-300"
-              >
-                <Clock className="h-4 w-4 text-yellow-400" />
-                <span>Lun-Ven: 9h-18h, Sam: 10h-16h</span>
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Bottom Bar */}
@@ -209,22 +163,11 @@ export function Footer() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+            className="flex justify-center items-center"
           >
             <p className="text-gray-400 text-sm">
-              © 2024 Prime Kicks. Tous droits réservés. Made with ❤️ pour les passionnés de football.
+              © 2026 Prime Kicks. Tous droits réservés. Made with ❤️ pour les passionnés de football.
             </p>
-            <div className="flex space-x-6 text-sm text-gray-400">
-              <Link href="/privacy" className="hover:text-white transition-colors">
-                Confidentialité
-              </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
-                Conditions Générales
-              </Link>
-              <Link href="/cookies" className="hover:text-white transition-colors">
-                Cookies
-              </Link>
-            </div>
           </motion.div>
         </div>
       </div>

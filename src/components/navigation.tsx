@@ -105,9 +105,9 @@ export function Navigation() {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
               <img 
-                src="/primekicks-favicon.png" 
+                src="/primekicks-logo.png" 
                 alt="Prime Kicks Logo"
-                className="h-16 w-16 rounded-full object-cover"
+                className="h-20 w-20 rounded-full object-cover"
               />
               <span className="font-bold text-xl">Prime Kicks</span>
             </Link>

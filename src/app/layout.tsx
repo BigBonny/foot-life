@@ -11,9 +11,9 @@ export const metadata = {
   title: 'Prime Kicks - Maillots de Football Premium',
   description: 'Boutique spécialisée dans les maillots de football des plus grands clubs et équipes nationales',
   icons: {
-    icon: '/primekicks-favicon.png',
-    shortcut: '/primekicks-favicon.png',
-    apple: '/primekicks-favicon.png',
+    icon: '/primekicks-logo.png',
+    shortcut: '/primekicks-logo.png',
+    apple: '/primekicks-logo.png',
   },
 }
 
