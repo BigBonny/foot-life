@@ -199,7 +199,7 @@ export function AnimatedBestSellers() {
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <motion.p 
-                          className="text-3xl font-black text-red-600"
+                          className="text-3xl font-black text-blue-600"
                           initial={{ scale: 1 }}
                           whileHover={{ scale: 1.05 }}
                         >
@@ -221,7 +221,7 @@ export function AnimatedBestSellers() {
                       <Button
                         onClick={() => handleAddToCart(product)}
                         disabled={product.stock === 0}
-                        className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                       >
                         <ShoppingBag className="h-4 w-4 mr-2" />
                         {product.stock === 0 ? 'Rupture de stock' : 'Ajouter au panier'}

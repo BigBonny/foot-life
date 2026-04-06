@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { ShoppingCart, Menu, X, User, LogOut, Package, Heart } from 'lucide-react'
 import { CartBadge } from '@/components/ui/cart-badge'
 import { FavoritesBadge } from '@/components/ui/favorites-badge'
+import { CountdownTimer } from '@/components/ui/countdown-timer'
 import { useCart } from '@/hooks/use-cart-v2'
 import { useFavorites } from '@/hooks/use-favorites'
 import { supabase } from '@/lib/supabase'
@@ -60,13 +61,20 @@ export function NavigationFinal() {
 
   return (
     <>
-      {/* Promo Banner */}
-      <div className="bg-red-600 text-white text-center py-2 text-sm">
-        Livraison offerte dès 50€ d'achat
+      {/* Promo Banner with Timer - Summer Ocean Theme */}
+      <div className="bg-ocean-gradient text-white">
+        <div className="container mx-auto px-4 py-1">
+          <div className="flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
+            <div className="text-center sm:text-left">
+              <span className="font-semibold">🌊 Livraison offerte dès 2 produits achetés!</span>
+            </div>
+            <CountdownTimer />
+          </div>
+        </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
+      {/* Main Navigation - Summer Ocean Theme */}
+      <nav className="bg-gradient-to-r from-cyan-50 via-blue-50 to-cyan-100 shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -140,10 +148,10 @@ export function NavigationFinal() {
                   </DropdownMenu>
                 ) : (
                   <div className="flex items-center space-x-2">
-                    <Button variant="ghost" size="sm" asChild>
+                    <Button variant="ghost" size="sm" asChild className="hover:bg-cyan-100 hover:text-cyan-700 transition-colors">
                       <Link href="/sign-in">Connexion</Link>
                     </Button>
-                    <Button size="sm" asChild>
+                    <Button size="sm" asChild className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0">
                       <Link href="/sign-up">S'inscrire</Link>
                     </Button>
                   </div>
@@ -240,7 +248,7 @@ export function NavigationFinal() {
                         variant="ghost" 
                         size="sm" 
                         asChild
-                        className="text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                        className="hover:bg-cyan-100 hover:text-cyan-700 transition-colors"
                       >
                         <Link 
                           href="/sign-in" 
@@ -252,7 +260,7 @@ export function NavigationFinal() {
                       <Button 
                         size="sm" 
                         asChild
-                        className="bg-blue-600 text-white hover:bg-blue-700"
+                        className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
                       >
                         <Link 
                           href="/sign-up" 

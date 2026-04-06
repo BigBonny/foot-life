@@ -28,15 +28,8 @@ export default function CartPage() {
   const { items, updateQuantity, removeItem, getTotalPrice } = useCart()
   const [isLoading, setIsLoading] = useState(false)
 
-  // Redirect to sign-in if not logged in
-  useEffect(() => {
-    if (!isSignedIn && items.length > 0) {
-      window.location.href = '/sign-in'
-    }
-  }, [isSignedIn, items.length])
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
+    <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-blue-50 to-white py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

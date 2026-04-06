@@ -127,7 +127,7 @@ export default function ProductsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12" ref={ref}>
+    <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-blue-50 to-white py-12" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div 

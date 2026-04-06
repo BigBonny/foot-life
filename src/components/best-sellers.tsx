@@ -120,7 +120,7 @@ export function BestSellers() {
                   <Button
                     onClick={() => handleAddToCart(product)}
                     disabled={product.stock === 0}
-                    className="w-full bg-red-600 hover:bg-red-700"
+                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0"
                   >
                     {product.stock === 0 ? 'Rupture' : 'Ajouter au panier'}
                   </Button>

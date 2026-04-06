@@ -19,15 +19,44 @@ export interface CartItem {
 interface CartStore {
   items: CartItem[]
   isLoaded: boolean
+  userId: string | null
   addItem: (item: CartItem) => void
   removeItem: (id: string, size: string, color: string) => void
   updateQuantity: (id: string, size: string, color: string, quantity: number) => void
   getTotalItems: () => number
   getTotalPrice: () => number
   clearCart: () => void
+  setUserId: (userId: string | null) => void
   loadFromDatabase: (userId: string) => Promise<void>
   saveToDatabase: (userId: string) => Promise<void>
-  setLoaded: (loaded: boolean) => void
+}
+
+const createUserStorage = () => {
+  if (typeof window === 'undefined') {
+    return createJSONStorage(() => ({
+      getItem: () => null,
+      setItem: () => {},
+      removeItem: () => {},
+    }))
+  }
+
+  return createJSONStorage(() => ({
+    getItem: (name: string) => {
+      const currentUserId = localStorage.getItem('cart-current-user-id')
+      const storageKey = currentUserId ? `cart-${currentUserId}` : 'cart-guest'
+      return localStorage.getItem(storageKey)
+    },
+    setItem: (name: string, value: string) => {
+      const currentUserId = localStorage.getItem('cart-current-user-id')
+      const storageKey = currentUserId ? `cart-${currentUserId}` : 'cart-guest'
+      localStorage.setItem(storageKey, value)
+    },
+    removeItem: (name: string) => {
+      const currentUserId = localStorage.getItem('cart-current-user-id')
+      const storageKey = currentUserId ? `cart-${currentUserId}` : 'cart-guest'
+      localStorage.removeItem(storageKey)
+    },
+  }))
 }
 
 export const useCart = create<CartStore>()(
@@ -35,36 +64,65 @@ export const useCart = create<CartStore>()(
     (set, get) => ({
       items: [],
       isLoaded: false,
-      
-      setLoaded: (loaded: boolean) => set({ isLoaded: loaded }),
-      
+      userId: null,
+
+      setUserId: async (userId: string | null) => {
+        const prevUserId = get().userId
+        if (prevUserId !== userId) {
+          console.log(`[Cart] Switching from ${prevUserId} to ${userId}`)
+          
+          // When logging out, save current cart to database first
+          if (prevUserId && !userId) {
+            console.log('[Cart] User logging out, saving cart to database...')
+            await get().saveToDatabase(prevUserId)
+          }
+          
+          if (userId) {
+            localStorage.setItem('cart-current-user-id', userId)
+          } else {
+            localStorage.removeItem('cart-current-user-id')
+          }
+          
+          // If logging in, clear and load user's cart from database
+          // If logging out, keep items in UI (they're already saved to DB above)
+          if (userId) {
+            set({ items: [], userId, isLoaded: false })
+            await get().loadFromDatabase(userId)
+          } else {
+            // Logging out - items stay in UI, just mark as guest
+            set({ userId: null, isLoaded: true })
+          }
+        }
+      },
+
       addItem: (newItem: CartItem) => {
-        const { items } = get()
+        const { items, userId } = get()
         const existingItem = items.find(
           (item) => item.id === newItem.id && item.size === newItem.size && item.color === newItem.color
         )
 
+        let newItems
         if (existingItem) {
-          set({
-            items: items.map((item) =>
-              item.id === newItem.id && item.size === newItem.size && item.color === newItem.color
-                ? { ...item, quantity: item.quantity + (newItem.quantity || 1) }
-                : item
-            ),
-          })
+          newItems = items.map((item) =>
+            item.id === newItem.id && item.size === newItem.size && item.color === newItem.color
+              ? { ...item, quantity: item.quantity + (newItem.quantity || 1) }
+              : item
+          )
         } else {
-          set({
-            items: [...items, { ...newItem, quantity: newItem.quantity || 1 }],
-          })
+          newItems = [...items, { ...newItem, quantity: newItem.quantity || 1 }]
         }
+
+        set({ items: newItems })
+        if (userId) get().saveToDatabase(userId)
       },
 
       removeItem: (id: string, size: string, color: string) => {
-        set({
-          items: get().items.filter(
-            (item) => !(item.id === id && item.size === size && item.color === color)
-          ),
-        })
+        const { items, userId } = get()
+        const newItems = items.filter(
+          (item) => !(item.id === id && item.size === size && item.color === color)
+        )
+        set({ items: newItems })
+        if (userId) get().saveToDatabase(userId)
       },
 
       updateQuantity: (id: string, size: string, color: string, quantity: number) => {
@@ -73,13 +131,14 @@ export const useCart = create<CartStore>()(
           return
         }
 
-        set({
-          items: get().items.map((item) =>
-            item.id === id && item.size === size && item.color === color
-              ? { ...item, quantity }
-              : item
-          ),
-        })
+        const { items, userId } = get()
+        const newItems = items.map((item) =>
+          item.id === id && item.size === size && item.color === color
+            ? { ...item, quantity }
+            : item
+        )
+        set({ items: newItems })
+        if (userId) get().saveToDatabase(userId)
       },
 
       getTotalItems: () => {
@@ -94,94 +153,49 @@ export const useCart = create<CartStore>()(
       },
 
       clearCart: () => {
-        set({ items: [], isLoaded: false })
+        const { userId } = get()
+        set({ items: [], isLoaded: true })
+        if (userId) {
+          supabase.from('cart_items').delete().eq('user_id', userId).then()
+        }
       },
 
       saveToDatabase: async (userId: string) => {
         const { items } = get()
-        console.log('[Cart] Saving to database for user:', userId, 'Items:', items.length)
-        
         try {
-          // First ensure user exists - handle case where .single() fails
-          console.log('[Cart] Checking if user exists:', userId)
-          const { data: existingUser, error: userError } = await supabase
-            .from('users')
-            .select('id')
-            .eq('clerk_id', userId)
-            .maybeSingle()
-          
-          if (userError) {
-            console.log('[Cart] Error checking user:', userError)
-          }
-          
-          if (!existingUser) {
-            console.log('[Cart] Creating user in database:', userId)
-            const { error: insertError } = await supabase.from('users').insert({
-              clerk_id: userId,
-              email: '',
-              first_name: '',
-              last_name: '',
-              created_at: new Date().toISOString(),
-              updated_at: new Date().toISOString(),
-            })
-            if (insertError) {
-              console.error('[Cart] Error creating user:', insertError)
-            } else {
-              console.log('[Cart] User created successfully')
-            }
-          } else {
-            console.log('[Cart] User already exists:', existingUser)
-          }
-          
-          // Clear existing cart
-          console.log('[Cart] Clearing existing cart items')
           await supabase.from('cart_items').delete().eq('user_id', userId)
-          
-          // Insert new items
-          if (items.length > 0) {
-            console.log('[Cart] Inserting', items.length, 'items')
-            const cartItems = items.map(item => ({
-              user_id: userId,
-              product_id: item.id,
-              product_name: item.name.replace(/ \([^)]*\)/, ''),
-              product_image: item.image,
-              product_price: item.price,
-              size: item.size,
-              color: item.color,
-              quantity: item.quantity,
-              custom_name: item.custom_name || null,
-              custom_number: item.custom_number || null,
-              created_at: new Date().toISOString(),
-            }))
-            
-            const { error } = await supabase.from('cart_items').insert(cartItems)
-            if (error) {
-              console.error('[Cart] Error saving to database:', error)
-            } else {
-              console.log('[Cart] Saved successfully')
-            }
-          }
+          if (items.length === 0) return
+          const cartItems = items.map(item => ({
+            user_id: userId,
+            product_id: item.id,
+            product_name: item.name,
+            product_price: item.price,
+            product_image: item.image,
+            size: item.size,
+            color: item.color,
+            quantity: item.quantity,
+            custom_name: item.custom_name,
+            custom_number: item.custom_number,
+          }))
+          const { error } = await supabase.from('cart_items').insert(cartItems)
+          if (error) console.error('[Cart] Error saving:', error)
         } catch (error) {
           console.error('[Cart] Error in saveToDatabase:', error)
         }
       },
 
       loadFromDatabase: async (userId: string) => {
-        console.log('[Cart] Loading from database for user:', userId)
-        
         try {
+          console.log('[Cart] Loading from DB for user:', userId)
           const { data, error } = await supabase
             .from('cart_items')
             .select('*')
             .eq('user_id', userId)
-            .order('created_at', { ascending: false })
-          
           if (error) {
-            console.error('[Cart] Error loading from database:', error)
+            console.error('[Cart] Error loading:', error)
             set({ isLoaded: true })
             return
           }
-          
           if (data && data.length > 0) {
             const items: CartItem[] = data.map(item => ({
               id: item.product_id,
@@ -194,11 +208,8 @@ export const useCart = create<CartStore>()(
               custom_name: item.custom_name,
               custom_number: item.custom_number,
             }))
-            
-            console.log('[Cart] Loaded', items.length, 'items from database')
             set({ items, isLoaded: true })
           } else {
-            console.log('[Cart] No items in database')
             set({ isLoaded: true })
           }
         } catch (error) {
@@ -209,7 +220,7 @@ export const useCart = create<CartStore>()(
     }),
     {
       name: 'cart-storage',
-      storage: createJSONStorage(() => localStorage),
+      storage: createUserStorage(),
     }
   )
 )

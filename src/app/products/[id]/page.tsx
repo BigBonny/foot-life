@@ -13,6 +13,7 @@ import { useFavorites } from '@/hooks/use-favorites'
 import { toast } from '@/components/ui/use-toast'
 import { ImageCarousel } from '@/components/ui/image-carousel'
 import { SizeGuideModal } from '@/components/ui/size-guide-modal'
+import { CountdownTimer } from '@/components/ui/countdown-timer'
 import { ShoppingBag, Heart, Star, Truck, Shield, RotateCcw, ChevronLeft, Ruler } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -285,6 +286,11 @@ export default function ProductDetailPage() {
             <p className="text-gray-600 leading-relaxed">
               {product.description || 'Maillot de football de haute qualité avec technologie d\'évacuation de l\'humidité. Tissu respirant et confortable pour une performance optimale sur le terrain.'}
             </p>
+
+            {/* Countdown Timer */}
+            <div className="my-4">
+              <CountdownTimer />
+            </div>
 
             {/* Size Selection */}
             <div>

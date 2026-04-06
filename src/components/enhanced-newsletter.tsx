@@ -72,7 +72,7 @@ export function EnhancedNewsletter() {
   ]
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-600 via-red-600 to-blue-800 relative overflow-hidden" ref={ref}>
+    <section className="py-24 bg-gradient-to-b from-cyan-500 via-blue-600 to-slate-800 text-white relative overflow-hidden" ref={ref}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(15)].map((_, i) => (

@@ -12,8 +12,8 @@ export async function POST(request: NextRequest) {
     console.log('Request body:', body)
     const { items, customerInfo, total, userId } = body
     
-    if (!items || !customerInfo || !userId) {
-      console.error('Missing required fields:', { items: !!items, customerInfo: !!customerInfo, userId: !!userId })
+    if (!items || !customerInfo) {
+      console.error('Missing required fields:', { items: !!items, customerInfo: !!customerInfo })
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -47,7 +47,8 @@ export async function POST(request: NextRequest) {
         metadata: {
           customerName: `${customerInfo.firstName} ${customerInfo.lastName}`,
           customerPhone: customerInfo.phone,
-          userId: userId, // Use userId from request body
+          userId: userId || 'guest',
+          isGuest: !userId ? 'true' : 'false',
         },
       })
 

@@ -19,7 +19,7 @@ export function EnhancedHero() {
     <section ref={ref} className="relative min-h-screen overflow-hidden">
       {/* Animated Background */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-blue-600 via-red-600 to-blue-800"
+        className="absolute inset-0 bg-gradient-to-br from-cyan-400 via-blue-500 to-teal-600"
         style={{ y }}
       >
         {/* Animated particles */}

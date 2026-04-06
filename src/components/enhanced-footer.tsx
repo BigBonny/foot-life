@@ -6,7 +6,7 @@ import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Clock, ShoppingBag, 
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-slate-800 via-slate-900 to-black text-white relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10">
         {[...Array(20)].map((_, i) => (
@@ -46,11 +46,11 @@ export function Footer() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="w-10 h-10 bg-gradient-to-r from-blue-500 to-red-500 rounded-full flex items-center justify-center"
+                className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center"
               >
                 <ShoppingBag className="h-6 w-6 text-white" />
               </motion.div>
-              <h3 className="text-2xl font-black bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-black bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 Prime Kicks
               </h3>
             </div>

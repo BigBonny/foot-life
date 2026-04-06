@@ -53,7 +53,7 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-blue-50 to-white flex items-center justify-center">
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -73,7 +73,7 @@ export default function DashboardPage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-blue-50 to-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Accès non autorisé</h1>
           <p className="mb-6">Veuillez vous connecter pour accéder à votre tableau de bord.</p>
@@ -86,7 +86,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12" ref={ref}>
+    <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-blue-50 to-white py-12" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div 

@@ -6,20 +6,26 @@ import { useCart } from '@/hooks/use-cart-v2'
 
 export function CartSyncV2() {
   const { isSignedIn, user } = useUser()
-  const { items, isLoaded, loadFromDatabase, saveToDatabase } = useCart()
+  const { setUserId, items, saveToDatabase } = useCart()
 
-  // Load cart from database when user signs in
+  // Set user ID when auth state changes
   useEffect(() => {
-    if (isSignedIn && user && !isLoaded) {
-      console.log('[CartSync] User signed in, loading cart from database:', user.id)
-      loadFromDatabase(user.id)
+    const handleAuthChange = async () => {
+      if (isSignedIn && user) {
+        console.log('[CartSync] User signed in:', user.id)
+        await setUserId(user.id)
+      } else {
+        console.log('[CartSync] No user signed in, using guest cart')
+        await setUserId(null)
+      }
     }
-  }, [isSignedIn, user?.id, isLoaded, loadFromDatabase])
+    handleAuthChange()
+  }, [isSignedIn, user?.id, setUserId])
 
   // Save cart to database whenever items change (for signed in users)
   useEffect(() => {
-    if (isSignedIn && user) {
-      console.log('[CartSync] Items changed, saving cart to database:', user.id, 'Items:', items.length)
+    if (isSignedIn && user && items.length > 0) {
+      console.log('[CartSync] Items changed, saving cart:', user.id, 'Items:', items.length)
       const timer = setTimeout(() => {
         saveToDatabase(user.id)
       }, 500)

@@ -60,7 +60,7 @@ export default function CustomizationPage() {
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                     />
                     <label htmlFor="patch" className="text-sm text-gray-700">
-                      Ajouter un patch (logo officiel) (+15€)
+                      Ajouter un patch (+15€)
                     </label>
                   </div>
                   
@@ -115,7 +115,7 @@ export default function CustomizationPage() {
                     <span className="font-bold text-blue-600">3€</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span>Patch officiel</span>
+                    <span>Patch</span>
                     <span className="font-bold text-green-600">15€</span>
                   </div>
                 </div>
