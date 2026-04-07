@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useCart } from '@/hooks/use-cart'
 import { toast } from '@/components/ui/use-toast'
-import { Star, TrendingUp, ShoppingBag, Heart, Eye } from 'lucide-react'
+import { Star, TrendingUp, ShoppingBag, Heart, Eye, Truck } from 'lucide-react'
 import Link from 'next/link'
 
 const containerVariants = {
@@ -214,6 +214,10 @@ export function AnimatedBestSellers() {
                       </div>
                       <div className="text-right">
                         <p className="text-sm text-gray-500">Stock: {product.stock}</p>
+                        <div className="flex items-center mt-1">
+                          <Truck className="h-4 w-4 text-green-600 mr-1" />
+                          <span className="text-xs text-green-600 font-medium">8-12 jours</span>
+                        </div>
                       </div>
                     </div>
                     

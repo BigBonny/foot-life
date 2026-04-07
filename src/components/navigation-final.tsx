@@ -66,7 +66,7 @@ export function NavigationFinal() {
         <div className="container mx-auto px-4 py-1">
           <div className="flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
             <div className="text-center sm:text-left">
-              <span className="font-semibold">🌊 Livraison offerte dès 2 produits achetés!</span>
+              <span className="font-semibold">🚚 Livraison offerte dès 2 produits achetés</span>
             </div>
             <CountdownTimer />
           </div>
@@ -97,6 +97,9 @@ export function NavigationFinal() {
               </Link>
               <Link href="/world-cup" className="text-gray-700 hover:text-blue-600 transition">
                 Coupe du Monde
+              </Link>
+              <Link href="/clubs" className="text-gray-700 hover:text-blue-600 transition">
+                Clubs
               </Link>
               <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition">
                 Contact
@@ -203,6 +206,13 @@ export function NavigationFinal() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Coupe du Monde
+                </Link>
+                <Link 
+                  href="/clubs" 
+                  className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Clubs
                 </Link>
                 <Link 
                   href="/contact" 

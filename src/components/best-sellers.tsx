@@ -6,7 +6,7 @@ import { Product } from '@/types'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/hooks/use-cart'
 import { toast } from '@/components/ui/use-toast'
-import { Star } from 'lucide-react'
+import { Star, Truck } from 'lucide-react'
 
 export function BestSellers() {
   const [products, setProducts] = useState<Product[]>([])
@@ -106,7 +106,7 @@ export function BestSellers() {
                   
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <p className="text-2xl font-bold text-red-600">{product.price.toFixed(2)} €</p>
+                      <p className="text-2xl font-bold text-blue-600">{product.price.toFixed(2)} €</p>
                       <div className="flex items-center mt-1">
                         <Star className="h-4 w-4 text-yellow-500 mr-1" />
                         <span className="text-sm text-gray-600">4.8 (124)</span>
@@ -114,6 +114,10 @@ export function BestSellers() {
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-gray-500">Stock: {product.stock}</p>
+                      <div className="flex items-center mt-1">
+                        <Truck className="h-4 w-4 text-green-600 mr-1" />
+                        <span className="text-xs text-green-600 font-medium">8-12 jours</span>
+                      </div>
                     </div>
                   </div>
                   

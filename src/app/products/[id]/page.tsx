@@ -431,8 +431,8 @@ export default function ProductDetailPage() {
             {/* Features */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t">
               <div className="text-center">
-                <Truck className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                <span className="text-sm text-gray-600">Livraison gratuite</span>
+                <Truck className="h-6 w-6 text-green-600 mx-auto mb-2" />
+                <span className="text-sm text-gray-600">Livraison 8-12 jours</span>
               </div>
               <div className="text-center">
                 <Shield className="h-6 w-6 text-blue-600 mx-auto mb-2" />
