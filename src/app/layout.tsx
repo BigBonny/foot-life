@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/toaster'
 import { CartSyncV2 } from '@/components/cart-sync-v2'
 import { UserSyncClient } from '@/components/user-sync-client'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,6 +37,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <Toaster />
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
