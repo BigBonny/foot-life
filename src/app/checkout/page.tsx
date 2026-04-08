@@ -5,7 +5,7 @@ import { useUser } from '@clerk/nextjs'
 import { useCart } from '@/hooks/use-cart-v2'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ShoppingBag, CreditCard, User, Mail, Phone, MapPin } from 'lucide-react'
+import { ShoppingBag, CreditCard, User, Mail, Phone, MapPin, Tag } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 import { toast } from '@/components/ui/use-toast'
 import Link from 'next/link'
@@ -26,6 +26,9 @@ export default function CheckoutPage() {
     postalCode: '',
     country: 'France'
   })
+  const [promoCode, setPromoCode] = useState('')
+  const [discount, setDiscount] = useState(0)
+  const [promoApplied, setPromoApplied] = useState(false)
 
   const handleGuestInfoChange = (field: string, value: string) => {
     setGuestInfo(prev => ({ ...prev, [field]: value }))
@@ -41,6 +44,26 @@ export default function CheckoutPage() {
       return false
     }
     return true
+  }
+
+  const applyPromoCode = () => {
+    // Buy 3 Get 1 Free offer logic
+    if (promoCode.toLowerCase() === 'yassou4') {
+      setDiscount(0.25) // Free 4th jersey (25% off)
+      setPromoApplied(true)
+    } else {
+      setDiscount(0)
+      setPromoApplied(false)
+    }
+  }
+
+  const getTotalWithDiscount = () => {
+    const subtotal = getTotalPrice()
+    return subtotal * (1 - discount)
+  }
+
+  const getDiscountAmount = () => {
+    return getTotalPrice() * discount
   }
 
   const handleCheckout = async () => {
@@ -190,7 +213,59 @@ export default function CheckoutPage() {
                     <span>Total</span>
                     <span className="text-blue-600">{getTotalPrice().toFixed(2)} €</span>
                   </div>
+                  
+                  {/* Discount Applied */}
+                  {discount > 0 && (
+                    <div className="flex justify-between text-sm text-green-600">
+                      <span>Réduction ({Math.round(discount * 100)}%)</span>
+                      <span>-{getDiscountAmount().toFixed(2)} €</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between text-xl font-bold">
+                    <span>Total avec réduction</span>
+                    <span className="text-green-600">{getTotalWithDiscount().toFixed(2)} €</span>
+                  </div>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Promo Code Section */}
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Tag className="h-5 w-5" />
+                Code Promo
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-col sm:flex-row gap-4 items-center">
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Code Promo
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={promoCode}
+                      onChange={(e) => setPromoCode(e.target.value)}
+                      placeholder="Entrez votre code"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    <Button
+                      onClick={applyPromoCode}
+                      disabled={!promoCode.trim()}
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                    >
+                      Appliquer
+                    </Button>
+                  </div>
+                </div>
+                {promoApplied && (
+                  <div className="text-green-600 text-sm font-medium">
+                    ✓ Code promo appliqué! 4ème maillot offert
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -335,7 +410,7 @@ export default function CheckoutPage() {
                   disabled={loading}
                   className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 rounded-xl shadow-lg mt-4"
                 >
-                  {loading ? 'Traitement...' : `Payer ${getTotalPrice().toFixed(2)} €`}
+                  {loading ? 'Traitement...' : `Payer ${getTotalWithDiscount().toFixed(2)} €`}
                 </Button>
 
                 {!isSignedIn && (
