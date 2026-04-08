@@ -57,7 +57,7 @@ export function CountdownTimer() {
         </div>
       </div>
       <div className="ml-2">
-        <p className="text-xs font-semibold">Offre Limitée!</p>
+        <p className="text-xs font-semibold">Offre Limitée</p>
         <p className="text-xs">-30% sur chaque produit</p>
       </div>
     </div>
