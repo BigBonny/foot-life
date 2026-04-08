@@ -47,13 +47,27 @@ export default function CheckoutPage() {
   }
 
   const applyPromoCode = () => {
-    // Buy 3 Get 1 Free offer logic
-    if (promoCode.toLowerCase() === 'yassou4') {
+    // Buy 3 Get 1 Free offer logic - works with 4 total items (counting duplicates)
+    const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
+    console.log('Applying promo code:', promoCode, 'Items in cart:', items.length, 'Total quantity:', totalItems, 'Discount:', discount)
+    
+    if (totalItems >= 4 && promoCode.toLowerCase() === 'yassou4') {
       setDiscount(0.25) // Free 4th jersey (25% off)
       setPromoApplied(true)
+      toast({
+        title: 'Code promo appliqué!',
+        description: '4ème maillot offert avec le code YASSOU4',
+      })
     } else {
       setDiscount(0)
       setPromoApplied(false)
+      if (promoCode.trim()) {
+        toast({
+          title: 'Code promo invalide',
+          description: 'Ce code n\'est pas valide ou vous n\'avez pas assez d\'articles.',
+          variant: 'destructive',
+        })
+      }
     }
   }
 
