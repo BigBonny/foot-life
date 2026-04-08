@@ -96,7 +96,7 @@ export function NavigationFinal() {
                 Meilleures ventes
               </Link>
               <Link href="/world-cup" className="text-gray-700 hover:text-blue-600 transition">
-                Coupe du Monde
+                Équipes Nationales
               </Link>
               <Link href="/clubs" className="text-gray-700 hover:text-blue-600 transition">
                 Clubs
@@ -205,7 +205,7 @@ export function NavigationFinal() {
                   className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors py-3 px-4 rounded-lg font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Coupe du Monde
+                  Équipes Nationales
                 </Link>
                 <Link 
                   href="/clubs" 
