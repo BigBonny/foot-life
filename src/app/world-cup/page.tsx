@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { useCart } from '@/hooks/use-cart'
 import { toast } from '@/components/ui/use-toast'
-import { Trophy, Calendar, Sparkles, ShoppingBag, Heart, Eye, Truck } from 'lucide-react'
+import { Trophy, Calendar, Sparkles, ShoppingBag, Heart, Eye, Truck, Search } from 'lucide-react'
 import Link from 'next/link'
 
 const containerVariants = {
@@ -106,54 +106,66 @@ export default function WorldCupPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12" ref={ref}>
       <div className="container mx-auto px-4">
-        {/* Hero Header */}
-        <motion.div 
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={isInView ? { scale: 1, rotate: 0 } : {}}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="inline-flex items-center justify-center mb-6"
-          >
-            <div className="bg-gradient-to-r from-yellow-400 via-blue-500 to-green-500 rounded-full p-5 shadow-xl">
-              <Trophy className="h-12 w-12 text-white" />
-            </div>
-          </motion.div>
-          
-          <motion.h1 
-            className="text-5xl md:text-6xl font-black text-gray-900 mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <span className="bg-gradient-to-r from-yellow-400 via-blue-500 to-green-500 bg-clip-text text-transparent">
-              Coupe du Monde & Équipes Nationales
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl text-gray-600 max-w-2xl mx-auto mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            Découvrez notre collection exclusive de maillots de la Coupe du Monde et des équipes nationales
-          </motion.p>
+        {/* Hero Section with Banner */}
+        <div className="relative mb-12 rounded-2xl overflow-hidden shadow-2xl">
+          <img 
+            src="/banner.png" 
+            alt="Prime Kicks Banner"
+            className="w-full h-96 md:h-[40rem] object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black-80 flex items-end justify-center pb-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                e.preventDefault()
+                const element = document.getElementById('products-grid')
+                if (element) {
+                  const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - 80
+                  const startPosition = window.pageYOffset
+                  const distance = targetPosition - startPosition
+                  const duration = 800
+                  let start: number | null = null
 
-          <motion.div
-            className="flex items-center justify-center gap-2 text-gray-500"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <Calendar className="h-5 w-5" />
-            <span>Édition limitée disponible maintenant</span>
-          </motion.div>
-        </motion.div>
+                  const animation = (currentTime: number) => {
+                    if (start === null) start = currentTime
+                    const timeElapsed = currentTime - start
+                    const progress = Math.min(timeElapsed / duration, 1)
+                    const easeInOutCubic = progress < 0.5
+                      ? 4 * progress * progress * progress
+                      : 1 - Math.pow(-2 * progress + 2, 3) / 2
+
+                    window.scrollTo(0, startPosition + distance * easeInOutCubic)
+
+                    if (timeElapsed < duration) {
+                      requestAnimationFrame(animation)
+                    }
+                  }
+
+                  requestAnimationFrame(animation)
+                }
+              }}
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:from-cyan-600 hover:to-blue-700 transition-all"
+            >
+              <ShoppingBag className="h-5 w-5 mr-2" />
+              Découvrir Nos Produits
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Search Section */}
+        <div className="mb-8">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="relative">
+              <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Rechercher un maillot..."
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+          </div>
+        </div>
 
         {/* Products Grid */}
         <AnimatePresence mode="wait">
@@ -191,6 +203,7 @@ export default function WorldCupPage() {
               animate="visible"
               exit={{ opacity: 0 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              id="products-grid"
             >
               {products.map((product) => (
                 <motion.div
@@ -246,11 +259,6 @@ export default function WorldCupPage() {
                     </div>
                     <CardHeader className="pb-2">
                       <CardTitle className="text-lg font-bold">{product.name}</CardTitle>
-                      <CardDescription>
-                        {product.team && `${product.team} • `}
-                        {(product.name.toLowerCase().includes('world cup') || product.name.toLowerCase().includes('coupe du monde')) ? 'Coupe du Monde' : 'Équipe nationale'}
-                        {product.season && ` • ${product.season}`}
-                      </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="flex items-center justify-between">
