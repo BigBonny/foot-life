@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /products
+Allow: /world-cup
+Allow: /clubs
+Allow: /images/
+Allow: /_next/static/
+Allow: /favicon.ico
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://primekicks.com/sitemap.xml

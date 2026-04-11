@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { Metadata } from 'next'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { supabase } from '@/lib/supabase'
 import { Product } from '@/types'
@@ -34,6 +35,7 @@ const itemVariants = {
     },
   },
 }
+
 
 export default function ClubsPage() {
   const [products, setProducts] = useState<Product[]>([])

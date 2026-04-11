@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { Metadata } from 'next'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { supabase } from '@/lib/supabase'
 import { Product } from '@/types'
@@ -34,6 +35,7 @@ const itemVariants = {
     },
   },
 }
+
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([])
@@ -98,7 +100,7 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-cyan-50 via-blue-50 to-white py-12">
-      <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
         {/* Hero Section with Banner */}
         <div className="relative mb-12 rounded-2xl overflow-hidden shadow-2xl">
           <img 
@@ -208,19 +210,20 @@ export default function ProductsPage() {
               </motion.div>
             ) : (
               filteredProducts.map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  layout
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -30, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
-                >
-                  <Card className="border-0 shadow-none">
+                <Link href={`/products/${product.id}`}>
+                  <motion.div
+                    key={product.id}
+                    layout
+                    initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -30, scale: 0.9 }}
+                    transition={{ duration: 0.5 }}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-white rounded-xl shadow-lg overflow-hidden group cursor-pointer"
+                  >
+                    <Card className="border-0 shadow-none">
                     <CardHeader className="p-0">
                       <div className="relative">
                         <motion.img
@@ -294,7 +297,8 @@ export default function ProductsPage() {
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
+                  </motion.div>
+                </Link>
               ))
             )}
           </AnimatePresence>
