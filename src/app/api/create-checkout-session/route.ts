@@ -30,15 +30,15 @@ export async function POST(request: NextRequest) {
             currency: 'eur',
             product_data: {
               name: item.name,
-              images: item.image ? [`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}${item.image}`] : [],
+              images: item.image ? [`https://primekicks.fr${item.image}`] : [],
             },
             unit_amount: Math.round(item.price * 100), // Convert to cents
           },
           quantity: item.quantity,
         })),
         mode: 'payment',
-        success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/success`,
-        cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/cart`,
+        success_url: `https://primekicks.fr/success`,
+        cancel_url: `https://primekicks.fr/cart`,
         customer_email: customerInfo.email,
         billing_address_collection: 'required',
         shipping_address_collection: {
