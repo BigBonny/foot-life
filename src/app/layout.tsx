@@ -25,7 +25,7 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://primekicks.com'),
+  metadataBase: new URL('https://primekicks.fr'),
   alternates: {
     canonical: '/',
     languages: {
@@ -36,7 +36,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: 'https://primekicks.com',
+    url: 'https://primekicks.fr',
     title: 'Prime Kicks - Maillots de Football Premium',
     description: 'Découvrez notre collection premium de maillots de football des plus grands clubs européens et équipes nationales.',
     siteName: 'Prime Kicks',
@@ -70,10 +70,6 @@ export const metadata = {
     icon: '/primekicks-logo.png',
     shortcut: '/primekicks-logo.png',
     apple: '/primekicks-logo.png',
-  },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code'
   }
 }
 
